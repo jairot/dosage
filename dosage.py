@@ -50,7 +50,15 @@ def junky(name, season = 1, chapter = 1):
         serie.tracking = True
         serie.junkie = True
         serie.save()
-    print "%s on Junky Mode"%name
+    finally:
+        #No more than 1 tv series in junky mode at the time
+        series = Series.select().where(Series.name != name, Series.junkie == True)
+        for serie in series:
+            serie.junkie =  False
+            serie.save()
+            print "%s is not more in Junky Mode"%serie.name
+            
+    print "%s is on Junky Mode"%name
     
 
 if __name__ == "__main__":
