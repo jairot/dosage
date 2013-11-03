@@ -7,30 +7,37 @@ import argparse
 from models import *
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--track", help = "Start tracking the given tv series")
-parser.add_argument("--untrack", help = "Stop tracking the given tv series")
-parser.add_argument("--junky", help = "Put the given tv series on Junky mode")
-parser.add_argument("--delete", help = "Deletes a TV Series from the DB")
+parser.add_argument("-t", "--track", help="Start tracking the given tv series")
+parser.add_argument("-u", "--untrack",
+                    help="Stop tracking the given tv series")
+parser.add_argument("-j", "--junky",
+                    help="Put the given tv series on Junky mode")
+parser.add_argument("-d", "--delete", help="Deletes a TV Series from the DB")
+parser.add_argument("-s,", "--season", help="Declares a season Offset",
+                    type=int, default=1)
+parser.add_argument("-c,", "--chapter", help="Declares a Chapter Offset",
+                    type=int, default=1)
 
-#    name = CharField(unique = True)
-#    last_season = IntegerField(default = 1, null = True) 
-#    last_chapter = IntegerField(defautl = 1, null = True)
-#    tracking = BooleanField(default = False)
-#    junkie = BooleanField(default = False)
-#    quality =  CharField(default = "HDTV")
+#name = CharField(unique = True)
+#last_season = IntegerField(default = 1, null = True)
+#last_chapter = IntegerField(defautl = 1, null = True)
+#tracking = BooleanField(default = False)
+#junkie = BooleanField(default = False)
+#quality =  CharField(default = "HDTV")
 
-def track(name, season = 1, chapter = 0):
+
+def track(name, season, chapter):
     name = name.lower()
     try:
         serie = Series.get(Series.name == name)
     except Series.DoesNotExist:
-        serie =  Series.create(name = name, last_season = season, 
-                        last_chapter= chapter, tracking = True)
+        serie = Series.create(name=name, last_season=season,
+                              last_chapter=chapter, tracking=True)
     else:
         serie.tracking = True
         serie.save()
-    print "Tracking %s"%name
-   
+    print "Tracking %s" % name
+
 
 def untrack(name):
     name = name.lower()
@@ -42,29 +49,31 @@ def untrack(name):
         serie.tracking = False
         serie.junkie = False
         serie.save()
-        print "Untracking %s"%name
+        print "Untracking %s" % name
 
-def junky(name, season = 1, chapter = 0):
+
+def junky(name, season, chapter):
     name = name.lower()
     try:
         serie = Series.get(Series.name == name)
     except Series.DoesNotExist:
-        serie =  Series.create(name = name, last_season = season, 
-                        last_chapter= chapter, tracking = True, junkie = True)
+        serie = Series.create(name=name, last_season=season,
+                              last_chapter=chapter, tracking=True, junkie=True)
     else:
         serie.tracking = True
         serie.junkie = True
         serie.save()
     finally:
         #No more than 1 tv series in junky mode at the time
-        series = Series.select().where(Series.name != name, Series.junkie == True)
+        series = Series.select().where(Series.name != name,
+                                       Series.junkie == True)
         for serie in series:
-            serie.junkie =  False
+            serie.junkie = False
             serie.save()
-            print "%s is not more in Junky Mode"%serie.name
-            
-    print "%s is on Junky Mode"%name
-    
+            print "%s is not more in Junky Mode" % serie.name
+    print "%s is on Junky Mode" % name
+
+
 def delete(name):
     name = name.lower()
     try:
@@ -73,16 +82,19 @@ def delete(name):
         print "There is not serie with that name on the DB"
     else:
         serie.delete_instance()
-        print "%s has been removed from the DB"%name        
+        print "%s has been removed from the DB" % name
+
 
 if __name__ == "__main__":
     args = parser.parse_args()
-    if args.track:
-        track(name = args.track)
-    elif args.untrack:
-        untrack(name = args.untrack)
-    elif args.junky:
-        junky(name = args.junky)
-    elif args.delete:
-        delete(name = args.delete)
 
+    if args.track:
+        track(name=args.track, chapter=args.chapter - 1,
+              season=args.season)
+    elif args.untrack:
+        untrack(name=args.untrack)
+    elif args.junky:
+        junky(name=args.junky, chapter=args.chapter - 1,
+              season=args.season)
+    elif args.delete:
+        delete(name=args.delete)

@@ -27,7 +27,7 @@ import transmissionrpc
 
 from models import *
 from tpb import TPB
-from tpb import CATEGORIES, ORDERS
+from tpb import ORDERS
 
 
 class TorrentClient(object):
@@ -41,7 +41,7 @@ class TorrentClient(object):
         """Checks if at least one chapter is Downloading"""
         #Common torrent nomenclature replaces the space with a dot.
         name = name.replace(" ", ".")
-        for torrent in self.client.get_torrents(): 
+        for torrent in self.client.get_torrents():
             if name in torrent.name.lower():
                 if torrent.progress != 100:
                     return True
@@ -58,9 +58,9 @@ class TorrentProvider(object):
 
     def __init__(self):
         self.provider = TPB('https://thepiratebay.sx')
-    
+
     def find(self, seriename):
-        print "Searching for %s"%seriename
+        print "Searching for %s" % seriename
         search = self.provider.search(seriename)
         search.order(ORDERS.SEEDERS.ASC).multipage()
         try:
@@ -69,6 +69,7 @@ class TorrentProvider(object):
             return None
         else:
             return torrent.magnet_link
+
 
 class DosageDaemon(object):
 
@@ -81,19 +82,19 @@ class DosageDaemon(object):
         #TODO: Crapy logic, make it better
         seriename, chapter, season = self.stringmaker(serie)
         torrent = self.provider.find(seriename)
-        
+
         #Lookup if a new season is available
         if not torrent:
-            seriename, chapter, season = self.stringmaker(serie, newseason = 1)
+            seriename, chapter, season = self.stringmaker(serie, newseason=1)
             torrent = self.provider.find(seriename)
-        
+
         if torrent:
             self.client.download(torrent)
-            serie.chapter =  chapter
-            serie.season =  season
+            serie.last_chapter = chapter
+            serie.last_season = season
             serie.save()
- 
-    def stringmaker(self, serie, newseason = 0):
+
+    def stringmaker(self, serie, newseason=0):
         chapter = str(serie.last_chapter + 1).zfill(2)
         season = str(serie.last_season + newseason).zfill(2)
         seriestring = serie.name + ' S' + season + 'E' + chapter
@@ -104,13 +105,13 @@ class DosageDaemon(object):
         if serie:
             serie = serie[0]  # Just One Junkie at the time Remember!
             if not self.client.already_downloading(serie.name):
-                self.download(serie) 
+                self.download(serie)
         else:
             series = self.get_tracking()
             for serie in series:
                 if not self.client.already_downloading(serie.name):
-                    self.download(serie) 
-                
+                    self.download(serie)
+
     def get_junky(self):
         series = Series.select().where(Series.junkie == True)
         try:
@@ -120,7 +121,7 @@ class DosageDaemon(object):
         return series
 
     def get_tracking(self):
-        series =  Series.select().where(Series.tracking == True)
+        series = Series.select().where(Series.tracking == True)
         return series
 
     def already_downloading(self):
