@@ -10,6 +10,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--track", help = "Start tracking the given tv series")
 parser.add_argument("--untrack", help = "Stop tracking the given tv series")
 parser.add_argument("--junky", help = "Put the given tv series on Junky mode")
+parser.add_argument("--delete", help = "Deletes a TV Series from the DB")
 
 #    name = CharField(unique = True)
 #    last_season = IntegerField(default = 1, null = True) 
@@ -18,7 +19,8 @@ parser.add_argument("--junky", help = "Put the given tv series on Junky mode")
 #    junkie = BooleanField(default = False)
 #    quality =  CharField(default = "HDTV")
 
-def track(name, season = 1, chapter = 1):
+def track(name, season = 1, chapter = 0):
+    name = name.lower()
     try:
         serie = Series.get(Series.name == name)
     except Series.DoesNotExist:
@@ -31,16 +33,19 @@ def track(name, season = 1, chapter = 1):
    
 
 def untrack(name):
+    name = name.lower()
     try:
         serie = Series.get(Series.name == name)
     except Series.DoesNotExist:
         print "You are not Tracking that Tv Series"
     else:
         serie.tracking = False
+        serie.junkie = False
         serie.save()
         print "Untracking %s"%name
 
-def junky(name, season = 1, chapter = 1):
+def junky(name, season = 1, chapter = 0):
+    name = name.lower()
     try:
         serie = Series.get(Series.name == name)
     except Series.DoesNotExist:
@@ -60,6 +65,15 @@ def junky(name, season = 1, chapter = 1):
             
     print "%s is on Junky Mode"%name
     
+def delete(name):
+    name = name.lower()
+    try:
+        serie = Series.get(Series.name == name)
+    except Series.DoesNotExist:
+        print "There is not serie with that name on the DB"
+    else:
+        serie.delete_instance()
+        print "%s has been removed from the DB"%name        
 
 if __name__ == "__main__":
     args = parser.parse_args()
@@ -69,5 +83,6 @@ if __name__ == "__main__":
         untrack(name = args.untrack)
     elif args.junky:
         junky(name = args.junky)
-    
+    elif args.delete:
+        delete(name = args.delete)
 
