@@ -41,8 +41,9 @@ class TorrentClient(object):
         """Checks if at least one chapter is Downloading"""
         #Common torrent nomenclature replaces the space with a dot.
         name = name.replace(" ", ".")
+        altname = name.replace(".", "+" )
         for torrent in self.client.get_torrents():
-            if name in torrent.name.lower():
+            if name in torrent.name.lower() or altname in torrent.name.lower():
                 if torrent.progress != 100:
                     return True
         return False
@@ -129,6 +130,7 @@ class DosageDaemon(object):
 
 
 if __name__ == "__main__":
+    startdb()
     dosage = DosageDaemon()
     from time import sleep
     while True:

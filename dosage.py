@@ -87,7 +87,7 @@ def delete(name):
 
 if __name__ == "__main__":
     args = parser.parse_args()
-
+    startdb()
     if args.track:
         track(name=args.track, chapter=args.chapter - 1,
               season=args.season)
