@@ -11,13 +11,13 @@ Usage
 
 Start tracking a tv series::
 
-    dosage track "Mad Men"
+    python dosage.py --track "Mad Men"
 
 stop tracking a tv series::
 
-    dosage untrack "Mad Men" 
+    python dosage.py --untrack "Mad Men" 
 
 Setup a tv series in Yonky Mode::
    
-    dosage junky "Breaking Bad"
+    python dosage.py --junky "Breaking Bad"
 
