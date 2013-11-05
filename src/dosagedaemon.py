@@ -74,9 +74,9 @@ class TorrentProvider(object):
 
 class DosageDaemon(object):
 
-    def __init__(self):
-        self.client = TorrentClient()
-        self.provider = TorrentProvider()
+    def __init__(self, client=TorrentClient, provider=TorrentProvider):
+        self.client = client()
+        self.provider = provider()
         self.MINIMUM_SEEDS = 5
 
     def download(self, serie):
@@ -96,7 +96,10 @@ class DosageDaemon(object):
             serie.save()
 
     def stringmaker(self, serie, newseason=0):
-        chapter = str(serie.last_chapter + 1).zfill(2)
+        if newseason == 1:
+            chapter = str(1).zfill(2)
+        else:
+            chapter = str(serie.last_chapter + 1).zfill(2)
         season = str(serie.last_season + newseason).zfill(2)
         seriestring = serie.name + ' S' + season + 'E' + chapter
         return seriestring, chapter, season
