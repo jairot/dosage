@@ -26,6 +26,8 @@ class Series(CustomModel):
 def startdb(env='production'):
     if env == 'production':
         database = SqliteDatabase('database.db')
+        database_proxy.initialize(database)
     elif env == 'testing':
         database = SqliteDatabase(':memory:')
-    database_proxy.initialize(database)
+        database_proxy.initialize(database)
+        Series.create_table()
