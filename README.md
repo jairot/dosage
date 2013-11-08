@@ -36,7 +36,7 @@ Then you download and start the dosagedaemon
     source bin/activate
     pip install -r requirements.txt
     cd src
-    python dosagedaemon.py Start
+    python dosagedaemon.py start
 
 then you can add any tv series using the commands above.
     
