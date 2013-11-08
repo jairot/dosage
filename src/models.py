@@ -1,10 +1,12 @@
 #!/urs/bin/env python
 #-*- coding: utf-8 -*-
 
+import os
+
 from peewee import Model, SqliteDatabase
 from peewee import CharField, IntegerField, BooleanField
-
 from playhouse.proxy import Proxy
+from sqlite3 import OperationalError
 
 database_proxy = Proxy()
 
@@ -25,9 +27,16 @@ class Series(CustomModel):
 
 def startdb(env='production'):
     if env == 'production':
-        database = SqliteDatabase('database.db')
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            'database.db')
+        database = SqliteDatabase(path)
         database_proxy.initialize(database)
     elif env == 'testing':
         database = SqliteDatabase(':memory:')
         database_proxy.initialize(database)
+    try:
         Series.create_table()
+    except OperationalError:
+        pass
+
+

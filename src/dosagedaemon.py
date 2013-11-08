@@ -24,7 +24,10 @@ mode stops.
 """
 
 import transmissionrpc
+import mattdaemon
+import sys
 
+from time import sleep
 from models import *
 from tpb import TPB
 from tpb import ORDERS
@@ -131,11 +134,40 @@ class DosageDaemon(object):
     def already_downloading(self):
         pass
 
+class MyDaemon(mattdaemon.daemon):
+
+    def run(self, *args, **kwargs):
+        startdb()
+        dosage = DosageDaemon()
+        while True:
+            dosage.run()
+            sleep(10)
 
 if __name__ == "__main__":
-    startdb()
-    dosage = DosageDaemon()
-    from time import sleep
-    while True:
-        dosage.run()
-        sleep(5)
+
+    args = {
+            "pidfile": "/tmp/dosage-daemon.pid",
+            "stdout": "/tmp/dosage-daemon.log",
+            "stderr": "/tmp/dosage-daemon.log",
+            "daemonize": True
+        }
+    daem = MyDaemon(**args)
+
+    for arg in sys.argv[1:]:
+        arg = arg.lower()
+        if arg in ("-h", "--help"):
+            print "python", sys.argv[0], "start|stop|restart|status"
+        elif arg in ("start", "start-no-daemon"):
+            daem.start()
+        elif arg in ("stop"):
+            daem.stop()
+        elif arg in ("restart"):
+            daem.restart()
+        elif arg in ("status"):
+            if daem.status():
+                print "dosage daemon currently running! :)"
+            else:
+                print "dosage daemon not running! :("
+                print "Check out the log in %s" % args["stderr"]
+        else:
+            print "Unknown arg:", arg
