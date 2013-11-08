@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="dosage.py"><meta name="author" content="dosage"><title>dosage.py | dosage Documentation</title><link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="../assets/css/rst.css" rel="stylesheet" type="text/css"><link href="../assets/css/code.css" rel="stylesheet" type="text/css"><link href="../assets/css/colorbox.css" rel="stylesheet" type="text/css"><link href="../assets/css/theme.css" rel="stylesheet" type="text/css"><!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]--><link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml"></head><body>
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"><div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../">dosage Documentation</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav"><li><a href="../archive.html">Archives</a>
+                </li><li><a href="../categories/index.html">Tags</a>
+                </li><li><a href="../rss.xml">RSS</a>
+
+        </li></ul><ul class="nav navbar-nav navbar-right"></ul></div><!-- /.navbar-collapse -->
+</nav><!-- End of Menubar --><div class="container">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+
+<ul class="breadcrumb"><li><a href=".">listings</a></li>
+        <li><a href="#">dosage.py.html</a></li>
+</ul><ul class="list-unstyled"></ul><table class="codetable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="dosage.py.html#listingsdosagepy-1">  1</a>
+<a href="dosage.py.html#listingsdosagepy-2">  2</a>
+<a href="dosage.py.html#listingsdosagepy-3">  3</a>
+<a href="dosage.py.html#listingsdosagepy-4">  4</a>
+<a href="dosage.py.html#listingsdosagepy-5">  5</a>
+<a href="dosage.py.html#listingsdosagepy-6">  6</a>
+<a href="dosage.py.html#listingsdosagepy-7">  7</a>
+<a href="dosage.py.html#listingsdosagepy-8">  8</a>
+<a href="dosage.py.html#listingsdosagepy-9">  9</a>
+<a href="dosage.py.html#listingsdosagepy-10"> 10</a>
+<a href="dosage.py.html#listingsdosagepy-11"> 11</a>
+<a href="dosage.py.html#listingsdosagepy-12"> 12</a>
+<a href="dosage.py.html#listingsdosagepy-13"> 13</a>
+<a href="dosage.py.html#listingsdosagepy-14"> 14</a>
+<a href="dosage.py.html#listingsdosagepy-15"> 15</a>
+<a href="dosage.py.html#listingsdosagepy-16"> 16</a>
+<a href="dosage.py.html#listingsdosagepy-17"> 17</a>
+<a href="dosage.py.html#listingsdosagepy-18"> 18</a>
+<a href="dosage.py.html#listingsdosagepy-19"> 19</a>
+<a href="dosage.py.html#listingsdosagepy-20"> 20</a>
+<a href="dosage.py.html#listingsdosagepy-21"> 21</a>
+<a href="dosage.py.html#listingsdosagepy-22"> 22</a>
+<a href="dosage.py.html#listingsdosagepy-23"> 23</a>
+<a href="dosage.py.html#listingsdosagepy-24"> 24</a>
+<a href="dosage.py.html#listingsdosagepy-25"> 25</a>
+<a href="dosage.py.html#listingsdosagepy-26"> 26</a>
+<a href="dosage.py.html#listingsdosagepy-27"> 27</a>
+<a href="dosage.py.html#listingsdosagepy-28"> 28</a>
+<a href="dosage.py.html#listingsdosagepy-29"> 29</a>
+<a href="dosage.py.html#listingsdosagepy-30"> 30</a>
+<a href="dosage.py.html#listingsdosagepy-31"> 31</a>
+<a href="dosage.py.html#listingsdosagepy-32"> 32</a>
+<a href="dosage.py.html#listingsdosagepy-33"> 33</a>
+<a href="dosage.py.html#listingsdosagepy-34"> 34</a>
+<a href="dosage.py.html#listingsdosagepy-35"> 35</a>
+<a href="dosage.py.html#listingsdosagepy-36"> 36</a>
+<a href="dosage.py.html#listingsdosagepy-37"> 37</a>
+<a href="dosage.py.html#listingsdosagepy-38"> 38</a>
+<a href="dosage.py.html#listingsdosagepy-39"> 39</a>
+<a href="dosage.py.html#listingsdosagepy-40"> 40</a>
+<a href="dosage.py.html#listingsdosagepy-41"> 41</a>
+<a href="dosage.py.html#listingsdosagepy-42"> 42</a>
+<a href="dosage.py.html#listingsdosagepy-43"> 43</a>
+<a href="dosage.py.html#listingsdosagepy-44"> 44</a>
+<a href="dosage.py.html#listingsdosagepy-45"> 45</a>
+<a href="dosage.py.html#listingsdosagepy-46"> 46</a>
+<a href="dosage.py.html#listingsdosagepy-47"> 47</a>
+<a href="dosage.py.html#listingsdosagepy-48"> 48</a>
+<a href="dosage.py.html#listingsdosagepy-49"> 49</a>
+<a href="dosage.py.html#listingsdosagepy-50"> 50</a>
+<a href="dosage.py.html#listingsdosagepy-51"> 51</a>
+<a href="dosage.py.html#listingsdosagepy-52"> 52</a>
+<a href="dosage.py.html#listingsdosagepy-53"> 53</a>
+<a href="dosage.py.html#listingsdosagepy-54"> 54</a>
+<a href="dosage.py.html#listingsdosagepy-55"> 55</a>
+<a href="dosage.py.html#listingsdosagepy-56"> 56</a>
+<a href="dosage.py.html#listingsdosagepy-57"> 57</a>
+<a href="dosage.py.html#listingsdosagepy-58"> 58</a>
+<a href="dosage.py.html#listingsdosagepy-59"> 59</a>
+<a href="dosage.py.html#listingsdosagepy-60"> 60</a>
+<a href="dosage.py.html#listingsdosagepy-61"> 61</a>
+<a href="dosage.py.html#listingsdosagepy-62"> 62</a>
+<a href="dosage.py.html#listingsdosagepy-63"> 63</a>
+<a href="dosage.py.html#listingsdosagepy-64"> 64</a>
+<a href="dosage.py.html#listingsdosagepy-65"> 65</a>
+<a href="dosage.py.html#listingsdosagepy-66"> 66</a>
+<a href="dosage.py.html#listingsdosagepy-67"> 67</a>
+<a href="dosage.py.html#listingsdosagepy-68"> 68</a>
+<a href="dosage.py.html#listingsdosagepy-69"> 69</a>
+<a href="dosage.py.html#listingsdosagepy-70"> 70</a>
+<a href="dosage.py.html#listingsdosagepy-71"> 71</a>
+<a href="dosage.py.html#listingsdosagepy-72"> 72</a>
+<a href="dosage.py.html#listingsdosagepy-73"> 73</a>
+<a href="dosage.py.html#listingsdosagepy-74"> 74</a>
+<a href="dosage.py.html#listingsdosagepy-75"> 75</a>
+<a href="dosage.py.html#listingsdosagepy-76"> 76</a>
+<a href="dosage.py.html#listingsdosagepy-77"> 77</a>
+<a href="dosage.py.html#listingsdosagepy-78"> 78</a>
+<a href="dosage.py.html#listingsdosagepy-79"> 79</a>
+<a href="dosage.py.html#listingsdosagepy-80"> 80</a>
+<a href="dosage.py.html#listingsdosagepy-81"> 81</a>
+<a href="dosage.py.html#listingsdosagepy-82"> 82</a>
+<a href="dosage.py.html#listingsdosagepy-83"> 83</a>
+<a href="dosage.py.html#listingsdosagepy-84"> 84</a>
+<a href="dosage.py.html#listingsdosagepy-85"> 85</a>
+<a href="dosage.py.html#listingsdosagepy-86"> 86</a>
+<a href="dosage.py.html#listingsdosagepy-87"> 87</a>
+<a href="dosage.py.html#listingsdosagepy-88"> 88</a>
+<a href="dosage.py.html#listingsdosagepy-89"> 89</a>
+<a href="dosage.py.html#listingsdosagepy-90"> 90</a>
+<a href="dosage.py.html#listingsdosagepy-91"> 91</a>
+<a href="dosage.py.html#listingsdosagepy-92"> 92</a>
+<a href="dosage.py.html#listingsdosagepy-93"> 93</a>
+<a href="dosage.py.html#listingsdosagepy-94"> 94</a>
+<a href="dosage.py.html#listingsdosagepy-95"> 95</a>
+<a href="dosage.py.html#listingsdosagepy-96"> 96</a>
+<a href="dosage.py.html#listingsdosagepy-97"> 97</a>
+<a href="dosage.py.html#listingsdosagepy-98"> 98</a>
+<a href="dosage.py.html#listingsdosagepy-99"> 99</a>
+<a href="dosage.py.html#listingsdosagepy-100">100</a></pre></div></td><td class="code"><div class="code"><pre><a name="listingsdosagepy-1"></a><span class="c">#!/urs/bin/env python</span>
+<a name="listingsdosagepy-2"></a><span class="c">#-*- coding: utf-8 -*-</span>
+<a name="listingsdosagepy-3"></a><span class="sd">"""This Module works as a Dosage Runner"""</span>
+<a name="listingsdosagepy-4"></a>
+<a name="listingsdosagepy-5"></a><span class="kn">import</span> <span class="nn">argparse</span>
+<a name="listingsdosagepy-6"></a>
+<a name="listingsdosagepy-7"></a><span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="o">*</span>
+<a name="listingsdosagepy-8"></a>
+<a name="listingsdosagepy-9"></a><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<a name="listingsdosagepy-10"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-t"</span><span class="p">,</span> <span class="s">"--track"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">"Start tracking the given tv series"</span><span class="p">)</span>
+<a name="listingsdosagepy-11"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-u"</span><span class="p">,</span> <span class="s">"--untrack"</span><span class="p">,</span>
+<a name="listingsdosagepy-12"></a>                    <span class="n">help</span><span class="o">=</span><span class="s">"Stop tracking the given tv series"</span><span class="p">)</span>
+<a name="listingsdosagepy-13"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-j"</span><span class="p">,</span> <span class="s">"--junky"</span><span class="p">,</span>
+<a name="listingsdosagepy-14"></a>                    <span class="n">help</span><span class="o">=</span><span class="s">"Put the given tv series on Junky mode"</span><span class="p">)</span>
+<a name="listingsdosagepy-15"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-d"</span><span class="p">,</span> <span class="s">"--delete"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">"Deletes a TV Series from the DB"</span><span class="p">)</span>
+<a name="listingsdosagepy-16"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-s,"</span><span class="p">,</span> <span class="s">"--season"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">"Declares a season Offset"</span><span class="p">,</span>
+<a name="listingsdosagepy-17"></a>                    <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a name="listingsdosagepy-18"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"-c,"</span><span class="p">,</span> <span class="s">"--chapter"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">"Declares a Chapter Offset"</span><span class="p">,</span>
+<a name="listingsdosagepy-19"></a>                    <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a name="listingsdosagepy-20"></a>
+<a name="listingsdosagepy-21"></a><span class="c">#name = CharField(unique = True)</span>
+<a name="listingsdosagepy-22"></a><span class="c">#last_season = IntegerField(default = 1, null = True)</span>
+<a name="listingsdosagepy-23"></a><span class="c">#last_chapter = IntegerField(defautl = 1, null = True)</span>
+<a name="listingsdosagepy-24"></a><span class="c">#tracking = BooleanField(default = False)</span>
+<a name="listingsdosagepy-25"></a><span class="c">#junkie = BooleanField(default = False)</span>
+<a name="listingsdosagepy-26"></a><span class="c">#quality =  CharField(default = "HDTV")</span>
+<a name="listingsdosagepy-27"></a>
+<a name="listingsdosagepy-28"></a>
+<a name="listingsdosagepy-29"></a><span class="k">def</span> <span class="nf">track</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">season</span><span class="p">,</span> <span class="n">chapter</span><span class="p">):</span>
+<a name="listingsdosagepy-30"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a name="listingsdosagepy-31"></a>    <span class="k">try</span><span class="p">:</span>
+<a name="listingsdosagepy-32"></a>        <span class="n">serie</span> <span class="o">=</span> <span class="n">Series</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">Series</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)</span>
+<a name="listingsdosagepy-33"></a>    <span class="k">except</span> <span class="n">Series</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+<a name="listingsdosagepy-34"></a>        <span class="n">serie</span> <span class="o">=</span> <span class="n">Series</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">last_season</span><span class="o">=</span><span class="n">season</span><span class="p">,</span>
+<a name="listingsdosagepy-35"></a>                              <span class="n">last_chapter</span><span class="o">=</span><span class="n">chapter</span><span class="p">,</span> <span class="n">tracking</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="listingsdosagepy-36"></a>    <span class="k">else</span><span class="p">:</span>
+<a name="listingsdosagepy-37"></a>        <span class="n">serie</span><span class="o">.</span><span class="n">tracking</span> <span class="o">=</span> <span class="bp">True</span>
+<a name="listingsdosagepy-38"></a>        <span class="n">serie</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<a name="listingsdosagepy-39"></a>    <span class="k">print</span> <span class="s">"Tracking </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="n">name</span>
+<a name="listingsdosagepy-40"></a>
+<a name="listingsdosagepy-41"></a>
+<a name="listingsdosagepy-42"></a><span class="k">def</span> <span class="nf">untrack</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<a name="listingsdosagepy-43"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a name="listingsdosagepy-44"></a>    <span class="k">try</span><span class="p">:</span>
+<a name="listingsdosagepy-45"></a>        <span class="n">serie</span> <span class="o">=</span> <span class="n">Series</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">Series</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)</span>
+<a name="listingsdosagepy-46"></a>    <span class="k">except</span> <span class="n">Series</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+<a name="listingsdosagepy-47"></a>        <span class="k">print</span> <span class="s">"You are not Tracking that Tv Series"</span>
+<a name="listingsdosagepy-48"></a>    <span class="k">else</span><span class="p">:</span>
+<a name="listingsdosagepy-49"></a>        <span class="n">serie</span><span class="o">.</span><span class="n">tracking</span> <span class="o">=</span> <span class="bp">False</span>
+<a name="listingsdosagepy-50"></a>        <span class="n">serie</span><span class="o">.</span><span class="n">junkie</span> <span class="o">=</span> <span class="bp">False</span>
+<a name="listingsdosagepy-51"></a>        <span class="n">serie</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<a name="listingsdosagepy-52"></a>        <span class="k">print</span> <span class="s">"Untracking </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="n">name</span>
+<a name="listingsdosagepy-53"></a>
+<a name="listingsdosagepy-54"></a>
+<a name="listingsdosagepy-55"></a><span class="k">def</span> <span class="nf">junky</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">season</span><span class="p">,</span> <span class="n">chapter</span><span class="p">):</span>
+<a name="listingsdosagepy-56"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a name="listingsdosagepy-57"></a>    <span class="k">try</span><span class="p">:</span>
+<a name="listingsdosagepy-58"></a>        <span class="n">serie</span> <span class="o">=</span> <span class="n">Series</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">Series</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)</span>
+<a name="listingsdosagepy-59"></a>    <span class="k">except</span> <span class="n">Series</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+<a name="listingsdosagepy-60"></a>        <span class="n">serie</span> <span class="o">=</span> <span class="n">Series</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">last_season</span><span class="o">=</span><span class="n">season</span><span class="p">,</span>
+<a name="listingsdosagepy-61"></a>                              <span class="n">last_chapter</span><span class="o">=</span><span class="n">chapter</span><span class="p">,</span> <span class="n">tracking</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">junkie</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<a name="listingsdosagepy-62"></a>    <span class="k">else</span><span class="p">:</span>
+<a name="listingsdosagepy-63"></a>        <span class="n">serie</span><span class="o">.</span><span class="n">tracking</span> <span class="o">=</span> <span class="bp">True</span>
+<a name="listingsdosagepy-64"></a>        <span class="n">serie</span><span class="o">.</span><span class="n">junkie</span> <span class="o">=</span> <span class="bp">True</span>
+<a name="listingsdosagepy-65"></a>        <span class="n">serie</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<a name="listingsdosagepy-66"></a>    <span class="k">finally</span><span class="p">:</span>
+<a name="listingsdosagepy-67"></a>        <span class="c">#No more than 1 tv series in junky mode at the time</span>
+<a name="listingsdosagepy-68"></a>        <span class="n">series</span> <span class="o">=</span> <span class="n">Series</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Series</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="n">name</span><span class="p">,</span>
+<a name="listingsdosagepy-69"></a>                                       <span class="n">Series</span><span class="o">.</span><span class="n">junkie</span> <span class="o">==</span> <span class="bp">True</span><span class="p">)</span>
+<a name="listingsdosagepy-70"></a>        <span class="k">for</span> <span class="n">serie</span> <span class="ow">in</span> <span class="n">series</span><span class="p">:</span>
+<a name="listingsdosagepy-71"></a>            <span class="n">serie</span><span class="o">.</span><span class="n">junkie</span> <span class="o">=</span> <span class="bp">False</span>
+<a name="listingsdosagepy-72"></a>            <span class="n">serie</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<a name="listingsdosagepy-73"></a>            <span class="k">print</span> <span class="s">"</span><span class="si">%s</span><span class="s"> is not more in Junky Mode"</span> <span class="o">%</span> <span class="n">serie</span><span class="o">.</span><span class="n">name</span>
+<a name="listingsdosagepy-74"></a>    <span class="k">print</span> <span class="s">"</span><span class="si">%s</span><span class="s"> is on Junky Mode"</span> <span class="o">%</span> <span class="n">name</span>
+<a name="listingsdosagepy-75"></a>
+<a name="listingsdosagepy-76"></a>
+<a name="listingsdosagepy-77"></a><span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<a name="listingsdosagepy-78"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a name="listingsdosagepy-79"></a>    <span class="k">try</span><span class="p">:</span>
+<a name="listingsdosagepy-80"></a>        <span class="n">serie</span> <span class="o">=</span> <span class="n">Series</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">Series</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">name</span><span class="p">)</span>
+<a name="listingsdosagepy-81"></a>    <span class="k">except</span> <span class="n">Series</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+<a name="listingsdosagepy-82"></a>        <span class="k">print</span> <span class="s">"There is not serie with that name on the DB"</span>
+<a name="listingsdosagepy-83"></a>    <span class="k">else</span><span class="p">:</span>
+<a name="listingsdosagepy-84"></a>        <span class="n">serie</span><span class="o">.</span><span class="n">delete_instance</span><span class="p">()</span>
+<a name="listingsdosagepy-85"></a>        <span class="k">print</span> <span class="s">"</span><span class="si">%s</span><span class="s"> has been removed from the DB"</span> <span class="o">%</span> <span class="n">name</span>
+<a name="listingsdosagepy-86"></a>
+<a name="listingsdosagepy-87"></a>
+<a name="listingsdosagepy-88"></a><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+<a name="listingsdosagepy-89"></a>    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<a name="listingsdosagepy-90"></a>    <span class="n">startdb</span><span class="p">()</span>
+<a name="listingsdosagepy-91"></a>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">track</span><span class="p">:</span>
+<a name="listingsdosagepy-92"></a>        <span class="n">track</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">track</span><span class="p">,</span> <span class="n">chapter</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">chapter</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+<a name="listingsdosagepy-93"></a>              <span class="n">season</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">season</span><span class="p">)</span>
+<a name="listingsdosagepy-94"></a>    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">untrack</span><span class="p">:</span>
+<a name="listingsdosagepy-95"></a>        <span class="n">untrack</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">untrack</span><span class="p">)</span>
+<a name="listingsdosagepy-96"></a>    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">junky</span><span class="p">:</span>
+<a name="listingsdosagepy-97"></a>        <span class="n">junky</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">junky</span><span class="p">,</span> <span class="n">chapter</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">chapter</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+<a name="listingsdosagepy-98"></a>              <span class="n">season</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">season</span><span class="p">)</span>
+<a name="listingsdosagepy-99"></a>    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">delete</span><span class="p">:</span>
+<a name="listingsdosagepy-100"></a>        <span class="n">delete</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">delete</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2013         <a href="mailto:None">dosage</a> - Powered by         <a href="http://nikola.ralsina.com.ar">Nikola</a> and <a href="https://github.com/diegosarmentero/documentor">Documentor</a>
+        </footer></div>
+</div>
+
+
+            <script src="../assets/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="../assets/js/bootstrap.min.js" type="text/javascript"></script><script src="../assets/js/jquery.colorbox-min.js" type="text/javascript"></script><script type="text/javascript">jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script></body></html>

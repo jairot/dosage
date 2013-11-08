@@ -1,0 +1,88 @@
+.. link:
+.. description:
+.. tags:
+.. date: 2013/11/08 00:00:00
+.. title: dosage
+.. slug: dosage
+
+.. class:: alert alert-info pull-top
+
+.. contents::
+
+
+*Module:* `dosage.py </listings/dosage.py.html>`_ API
+=======================================================
+| This Module works as a Dosage Runner
+
+
+*Imports:*
+------------
+- `argparse </listings/dosage.py.html#listingsdosagepy-5>`_
+
+- `models.* </listings/dosage.py.html#7>`_
+
+
+
+*Global Attributes:*
+----------------------
+- `parser [at ln:9] </listings/dosage.py.html#listingsdosagepy-9>`_
+
+
+----
+
+
+*Global Functions:*
+---------------------
+
+*Function:* `delete(name) [at ln:77] </listings/dosage.py.html#listingsdosagepy-77>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+       def delete(name):
+
+
+No description.
+
+
+----
+
+*Function:* `junky(name, season, chapter) [at ln:55] </listings/dosage.py.html#listingsdosagepy-55>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+       def junky(name, season, chapter):
+
+
+No description.
+
+
+----
+
+*Function:* `track(name, season, chapter) [at ln:29] </listings/dosage.py.html#listingsdosagepy-29>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+       def track(name, season, chapter):
+
+
+No description.
+
+
+----
+
+*Function:* `untrack(name) [at ln:42] </listings/dosage.py.html#listingsdosagepy-42>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+       def untrack(name):
+
+
+No description.
+
+
+
+

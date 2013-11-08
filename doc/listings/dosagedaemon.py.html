@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="dosagedaemon.py"><meta name="author" content="dosage"><title>dosagedaemon.py | dosage Documentation</title><link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"><link href="../assets/css/rst.css" rel="stylesheet" type="text/css"><link href="../assets/css/code.css" rel="stylesheet" type="text/css"><link href="../assets/css/colorbox.css" rel="stylesheet" type="text/css"><link href="../assets/css/theme.css" rel="stylesheet" type="text/css"><!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]--><link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml"></head><body>
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"><div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../">dosage Documentation</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav"><li><a href="../archive.html">Archives</a>
+                </li><li><a href="../categories/index.html">Tags</a>
+                </li><li><a href="../rss.xml">RSS</a>
+
+        </li></ul><ul class="nav navbar-nav navbar-right"></ul></div><!-- /.navbar-collapse -->
+</nav><!-- End of Menubar --><div class="container">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+
+<ul class="breadcrumb"><li><a href=".">listings</a></li>
+        <li><a href="#">dosagedaemon.py.html</a></li>
+</ul><ul class="list-unstyled"></ul><table class="codetable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="dosagedaemon.py.html#listingsdosagedaemonpy-1">  1</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-2">  2</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-3">  3</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-4">  4</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-5">  5</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-6">  6</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-7">  7</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-8">  8</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-9">  9</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-10"> 10</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-11"> 11</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-12"> 12</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-13"> 13</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-14"> 14</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-15"> 15</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-16"> 16</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-17"> 17</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-18"> 18</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-19"> 19</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-20"> 20</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-21"> 21</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-22"> 22</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-23"> 23</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-24"> 24</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-25"> 25</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-26"> 26</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-27"> 27</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-28"> 28</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-29"> 29</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-30"> 30</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-31"> 31</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-32"> 32</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-33"> 33</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-34"> 34</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-35"> 35</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-36"> 36</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-37"> 37</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-38"> 38</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-39"> 39</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-40"> 40</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-41"> 41</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-42"> 42</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-43"> 43</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-44"> 44</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-45"> 45</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-46"> 46</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-47"> 47</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-48"> 48</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-49"> 49</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-50"> 50</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-51"> 51</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-52"> 52</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-53"> 53</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-54"> 54</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-55"> 55</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-56"> 56</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-57"> 57</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-58"> 58</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-59"> 59</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-60"> 60</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-61"> 61</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-62"> 62</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-63"> 63</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-64"> 64</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-65"> 65</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-66"> 66</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-67"> 67</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-68"> 68</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-69"> 69</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-70"> 70</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-71"> 71</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-72"> 72</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-73"> 73</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-74"> 74</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-75"> 75</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-76"> 76</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-77"> 77</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-78"> 78</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-79"> 79</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-80"> 80</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-81"> 81</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-82"> 82</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-83"> 83</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-84"> 84</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-85"> 85</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-86"> 86</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-87"> 87</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-88"> 88</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-89"> 89</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-90"> 90</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-91"> 91</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-92"> 92</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-93"> 93</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-94"> 94</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-95"> 95</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-96"> 96</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-97"> 97</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-98"> 98</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-99"> 99</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-100">100</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-101">101</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-102">102</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-103">103</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-104">104</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-105">105</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-106">106</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-107">107</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-108">108</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-109">109</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-110">110</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-111">111</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-112">112</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-113">113</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-114">114</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-115">115</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-116">116</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-117">117</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-118">118</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-119">119</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-120">120</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-121">121</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-122">122</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-123">123</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-124">124</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-125">125</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-126">126</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-127">127</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-128">128</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-129">129</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-130">130</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-131">131</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-132">132</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-133">133</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-134">134</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-135">135</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-136">136</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-137">137</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-138">138</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-139">139</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-140">140</a>
+<a href="dosagedaemon.py.html#listingsdosagedaemonpy-141">141</a></pre></div></td><td class="code"><div class="code"><pre><a name="listingsdosagedaemonpy-1"></a><span class="c">#!/urs/bin/env python</span>
+<a name="listingsdosagedaemonpy-2"></a><span class="c">#-*- coding: utf-8 -*-</span>
+<a name="listingsdosagedaemonpy-3"></a><span class="sd">""" This daemon downloads and schedules the Series that dosage is tracking</span>
+<a name="listingsdosagedaemonpy-4"></a><span class="sd">because Bandwith is allways scarce there are some policies implemented in</span>
+<a name="listingsdosagedaemonpy-5"></a><span class="sd">order to improve the performance and make the dosage daemon the less invasive</span>
+<a name="listingsdosagedaemonpy-6"></a><span class="sd">posible.</span>
+<a name="listingsdosagedaemonpy-7"></a>
+<a name="listingsdosagedaemonpy-8"></a><span class="sd">The policies for downloading Tv Series are:</span>
+<a name="listingsdosagedaemonpy-9"></a>
+<a name="listingsdosagedaemonpy-10"></a><span class="sd">1) Never download More than one chapter per TV Series.</span>
+<a name="listingsdosagedaemonpy-11"></a>
+<a name="listingsdosagedaemonpy-12"></a><span class="sd">2) Allways download chapters with the max number of seeds.</span>
+<a name="listingsdosagedaemonpy-13"></a>
+<a name="listingsdosagedaemonpy-14"></a><span class="sd">3) Never download chapters with less than 5 seeds.</span>
+<a name="listingsdosagedaemonpy-15"></a>
+<a name="listingsdosagedaemonpy-16"></a><span class="sd">3) Only one Tv Series Can be at Junky mode at the time.</span>
+<a name="listingsdosagedaemonpy-17"></a>
+<a name="listingsdosagedaemonpy-18"></a><span class="sd">4) If 1 Tv Series is in Junky mode, don't download new chapters of tracking</span>
+<a name="listingsdosagedaemonpy-19"></a><span class="sd">   series</span>
+<a name="listingsdosagedaemonpy-20"></a>
+<a name="listingsdosagedaemonpy-21"></a><span class="sd">5) When you download the last chapter of a Tv Series on Junky mode, the junky</span>
+<a name="listingsdosagedaemonpy-22"></a><span class="sd">mode stops.</span>
+<a name="listingsdosagedaemonpy-23"></a>
+<a name="listingsdosagedaemonpy-24"></a><span class="sd">"""</span>
+<a name="listingsdosagedaemonpy-25"></a>
+<a name="listingsdosagedaemonpy-26"></a><span class="kn">import</span> <span class="nn">transmissionrpc</span>
+<a name="listingsdosagedaemonpy-27"></a>
+<a name="listingsdosagedaemonpy-28"></a><span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="o">*</span>
+<a name="listingsdosagedaemonpy-29"></a><span class="kn">from</span> <span class="nn">tpb</span> <span class="kn">import</span> <span class="n">TPB</span>
+<a name="listingsdosagedaemonpy-30"></a><span class="kn">from</span> <span class="nn">tpb</span> <span class="kn">import</span> <span class="n">ORDERS</span>
+<a name="listingsdosagedaemonpy-31"></a>
+<a name="listingsdosagedaemonpy-32"></a>
+<a name="listingsdosagedaemonpy-33"></a><span class="k">class</span> <span class="nc">TorrentClient</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-34"></a>
+<a name="listingsdosagedaemonpy-35"></a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-36"></a>        <span class="c">#Let's assume that Trasmission is On and fix It later</span>
+<a name="listingsdosagedaemonpy-37"></a>        <span class="c">#TODO: What happens when transsmission is not on?</span>
+<a name="listingsdosagedaemonpy-38"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">transmissionrpc</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+<a name="listingsdosagedaemonpy-39"></a>
+<a name="listingsdosagedaemonpy-40"></a>    <span class="k">def</span> <span class="nf">already_downloading</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-41"></a>        <span class="sd">"""Checks if at least one chapter is Downloading"""</span>
+<a name="listingsdosagedaemonpy-42"></a>        <span class="c">#Common torrent nomenclature replaces the space with a dot.</span>
+<a name="listingsdosagedaemonpy-43"></a>        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">" "</span><span class="p">,</span> <span class="s">"."</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-44"></a>        <span class="n">altname</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">"."</span><span class="p">,</span> <span class="s">"+"</span> <span class="p">)</span>
+<a name="listingsdosagedaemonpy-45"></a>        <span class="k">for</span> <span class="n">torrent</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get_torrents</span><span class="p">():</span>
+<a name="listingsdosagedaemonpy-46"></a>            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">torrent</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="n">altname</span> <span class="ow">in</span> <span class="n">torrent</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+<a name="listingsdosagedaemonpy-47"></a>                <span class="k">if</span> <span class="n">torrent</span><span class="o">.</span><span class="n">progress</span> <span class="o">!=</span> <span class="mi">100</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-48"></a>                    <span class="k">return</span> <span class="bp">True</span>
+<a name="listingsdosagedaemonpy-49"></a>        <span class="k">return</span> <span class="bp">False</span>
+<a name="listingsdosagedaemonpy-50"></a>
+<a name="listingsdosagedaemonpy-51"></a>    <span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">magnet</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-52"></a>        <span class="k">try</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-53"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">add_torrent</span><span class="p">(</span><span class="n">magnet</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-54"></a>        <span class="k">except</span> <span class="n">transmissionrpc</span><span class="o">.</span><span class="n">error</span><span class="o">.</span><span class="n">TransmissionError</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-55"></a>            <span class="k">print</span> <span class="s">"Already downloaded that torrent"</span>
+<a name="listingsdosagedaemonpy-56"></a>
+<a name="listingsdosagedaemonpy-57"></a>
+<a name="listingsdosagedaemonpy-58"></a><span class="k">class</span> <span class="nc">TorrentProvider</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-59"></a>
+<a name="listingsdosagedaemonpy-60"></a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-61"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="n">TPB</span><span class="p">(</span><span class="s">'https://thepiratebay.sx'</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-62"></a>
+<a name="listingsdosagedaemonpy-63"></a>    <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seriename</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-64"></a>        <span class="k">print</span> <span class="s">"Searching for </span><span class="si">%s</span><span class="s">"</span> <span class="o">%</span> <span class="n">seriename</span>
+<a name="listingsdosagedaemonpy-65"></a>        <span class="n">search</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">seriename</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-66"></a>        <span class="n">search</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="n">ORDERS</span><span class="o">.</span><span class="n">SEEDERS</span><span class="o">.</span><span class="n">ASC</span><span class="p">)</span><span class="o">.</span><span class="n">multipage</span><span class="p">()</span>
+<a name="listingsdosagedaemonpy-67"></a>        <span class="k">try</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-68"></a>            <span class="n">torrent</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<a name="listingsdosagedaemonpy-69"></a>        <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-70"></a>            <span class="k">return</span> <span class="bp">None</span>
+<a name="listingsdosagedaemonpy-71"></a>        <span class="k">else</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-72"></a>            <span class="k">return</span> <span class="n">torrent</span><span class="o">.</span><span class="n">magnet_link</span>
+<a name="listingsdosagedaemonpy-73"></a>
+<a name="listingsdosagedaemonpy-74"></a>
+<a name="listingsdosagedaemonpy-75"></a><span class="k">class</span> <span class="nc">DosageDaemon</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-76"></a>
+<a name="listingsdosagedaemonpy-77"></a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="o">=</span><span class="n">TorrentClient</span><span class="p">,</span> <span class="n">provider</span><span class="o">=</span><span class="n">TorrentProvider</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-78"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">client</span><span class="p">()</span>
+<a name="listingsdosagedaemonpy-79"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">provider</span> <span class="o">=</span> <span class="n">provider</span><span class="p">()</span>
+<a name="listingsdosagedaemonpy-80"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">MINIMUM_SEEDS</span> <span class="o">=</span> <span class="mi">5</span>
+<a name="listingsdosagedaemonpy-81"></a>
+<a name="listingsdosagedaemonpy-82"></a>    <span class="k">def</span> <span class="nf">download</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serie</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-83"></a>        <span class="c">#TODO: Crapy logic, make it better</span>
+<a name="listingsdosagedaemonpy-84"></a>        <span class="n">seriename</span><span class="p">,</span> <span class="n">chapter</span><span class="p">,</span> <span class="n">season</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stringmaker</span><span class="p">(</span><span class="n">serie</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-85"></a>        <span class="n">torrent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">seriename</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-86"></a>
+<a name="listingsdosagedaemonpy-87"></a>        <span class="c">#Lookup if a new season is available</span>
+<a name="listingsdosagedaemonpy-88"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">torrent</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-89"></a>            <span class="n">seriename</span><span class="p">,</span> <span class="n">chapter</span><span class="p">,</span> <span class="n">season</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stringmaker</span><span class="p">(</span><span class="n">serie</span><span class="p">,</span> <span class="n">newseason</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-90"></a>            <span class="n">torrent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">provider</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">seriename</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-91"></a>
+<a name="listingsdosagedaemonpy-92"></a>        <span class="k">if</span> <span class="n">torrent</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-93"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">torrent</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-94"></a>            <span class="n">serie</span><span class="o">.</span><span class="n">last_chapter</span> <span class="o">=</span> <span class="n">chapter</span>
+<a name="listingsdosagedaemonpy-95"></a>            <span class="n">serie</span><span class="o">.</span><span class="n">last_season</span> <span class="o">=</span> <span class="n">season</span>
+<a name="listingsdosagedaemonpy-96"></a>            <span class="n">serie</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<a name="listingsdosagedaemonpy-97"></a>
+<a name="listingsdosagedaemonpy-98"></a>    <span class="k">def</span> <span class="nf">stringmaker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serie</span><span class="p">,</span> <span class="n">newseason</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-99"></a>        <span class="k">if</span> <span class="n">newseason</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-100"></a>            <span class="n">chapter</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-101"></a>        <span class="k">else</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-102"></a>            <span class="n">chapter</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">serie</span><span class="o">.</span><span class="n">last_chapter</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-103"></a>        <span class="n">season</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">serie</span><span class="o">.</span><span class="n">last_season</span> <span class="o">+</span> <span class="n">newseason</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-104"></a>        <span class="n">seriestring</span> <span class="o">=</span> <span class="n">serie</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">' S'</span> <span class="o">+</span> <span class="n">season</span> <span class="o">+</span> <span class="s">'E'</span> <span class="o">+</span> <span class="n">chapter</span>
+<a name="listingsdosagedaemonpy-105"></a>        <span class="k">return</span> <span class="n">seriestring</span><span class="p">,</span> <span class="n">chapter</span><span class="p">,</span> <span class="n">season</span>
+<a name="listingsdosagedaemonpy-106"></a>
+<a name="listingsdosagedaemonpy-107"></a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-108"></a>        <span class="n">serie</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_junky</span><span class="p">()</span>
+<a name="listingsdosagedaemonpy-109"></a>        <span class="k">if</span> <span class="n">serie</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-110"></a>            <span class="n">serie</span> <span class="o">=</span> <span class="n">serie</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c"># Just One Junkie at the time Remember!</span>
+<a name="listingsdosagedaemonpy-111"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">already_downloading</span><span class="p">(</span><span class="n">serie</span><span class="o">.</span><span class="n">name</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-112"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">serie</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-113"></a>        <span class="k">else</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-114"></a>            <span class="n">series</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_tracking</span><span class="p">()</span>
+<a name="listingsdosagedaemonpy-115"></a>            <span class="k">for</span> <span class="n">serie</span> <span class="ow">in</span> <span class="n">series</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-116"></a>                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">already_downloading</span><span class="p">(</span><span class="n">serie</span><span class="o">.</span><span class="n">name</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-117"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">serie</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-118"></a>
+<a name="listingsdosagedaemonpy-119"></a>    <span class="k">def</span> <span class="nf">get_junky</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-120"></a>        <span class="n">series</span> <span class="o">=</span> <span class="n">Series</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Series</span><span class="o">.</span><span class="n">junkie</span> <span class="o">==</span> <span class="bp">True</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-121"></a>        <span class="k">try</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-122"></a>            <span class="n">series</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a name="listingsdosagedaemonpy-123"></a>        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-124"></a>            <span class="n">series</span> <span class="o">=</span> <span class="p">[]</span>
+<a name="listingsdosagedaemonpy-125"></a>        <span class="k">return</span> <span class="n">series</span>
+<a name="listingsdosagedaemonpy-126"></a>
+<a name="listingsdosagedaemonpy-127"></a>    <span class="k">def</span> <span class="nf">get_tracking</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-128"></a>        <span class="n">series</span> <span class="o">=</span> <span class="n">Series</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Series</span><span class="o">.</span><span class="n">tracking</span> <span class="o">==</span> <span class="bp">True</span><span class="p">)</span>
+<a name="listingsdosagedaemonpy-129"></a>        <span class="k">return</span> <span class="n">series</span>
+<a name="listingsdosagedaemonpy-130"></a>
+<a name="listingsdosagedaemonpy-131"></a>    <span class="k">def</span> <span class="nf">already_downloading</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a name="listingsdosagedaemonpy-132"></a>        <span class="k">pass</span>
+<a name="listingsdosagedaemonpy-133"></a>
+<a name="listingsdosagedaemonpy-134"></a>
+<a name="listingsdosagedaemonpy-135"></a><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-136"></a>    <span class="n">startdb</span><span class="p">()</span>
+<a name="listingsdosagedaemonpy-137"></a>    <span class="n">dosage</span> <span class="o">=</span> <span class="n">DosageDaemon</span><span class="p">()</span>
+<a name="listingsdosagedaemonpy-138"></a>    <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<a name="listingsdosagedaemonpy-139"></a>    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+<a name="listingsdosagedaemonpy-140"></a>        <span class="n">dosage</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<a name="listingsdosagedaemonpy-141"></a>        <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2013         <a href="mailto:None">dosage</a> - Powered by         <a href="http://nikola.ralsina.com.ar">Nikola</a> and <a href="https://github.com/diegosarmentero/documentor">Documentor</a>
+        </footer></div>
+</div>
+
+
+            <script src="../assets/js/jquery-1.10.2.min.js" type="text/javascript"></script><script src="../assets/js/bootstrap.min.js" type="text/javascript"></script><script src="../assets/js/jquery.colorbox-min.js" type="text/javascript"></script><script type="text/javascript">jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script></body></html>

@@ -1,0 +1,101 @@
+.. link:
+.. description:
+.. tags:
+.. date: 2013/11/08 00:00:00
+.. title: dosage
+.. slug: models
+
+.. class:: alert alert-info pull-top
+
+.. contents::
+
+
+*Module:* `models.py </listings/models.py.html>`_ API
+=======================================================
+
+No description.
+
+
+
+*Imports:*
+------------
+- `peewee.BooleanField </listings/models.py.html#5>`_
+
+- `peewee.CharField </listings/models.py.html#5>`_
+
+- `peewee.IntegerField </listings/models.py.html#5>`_
+
+- `peewee.Model </listings/models.py.html#4>`_
+
+- `playhouse.proxy.Proxy </listings/models.py.html#7>`_
+
+- `peewee.SqliteDatabase </listings/models.py.html#4>`_
+
+
+
+*Global Attributes:*
+----------------------
+- `database_proxy [at ln:9] </listings/models.py.html#listingsmodelspy-9>`_
+
+
+----
+
+
+*Global Functions:*
+---------------------
+
+*Function:* `startdb(env=str) [at ln:26] </listings/models.py.html#listingsmodelspy-26>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: python
+
+       def startdb(env=str):
+
+
+No description.
+
+
+----
+
+
+*Class:* `Series(CustomModel) </listings/models.py.html#listingsmodelspy-17>`_
+--------------------------------------------------------------------------------
+
+.. code:: python
+
+       class Series(CustomModel):
+
+
+No description.
+
+
+*Attributes*
+~~~~~~~~~~~~~~
+- `junkie [at ln:22] </listings/models.py.html#listingsmodelspy-22>`_
+
+- `last_chapter [at ln:20] </listings/models.py.html#listingsmodelspy-20>`_
+
+- `last_season [at ln:19] </listings/models.py.html#listingsmodelspy-19>`_
+
+- `name [at ln:18] </listings/models.py.html#listingsmodelspy-18>`_
+
+- `quality [at ln:23] </listings/models.py.html#listingsmodelspy-23>`_
+
+- `tracking [at ln:21] </listings/models.py.html#listingsmodelspy-21>`_
+
+
+----
+
+*Class:* `CustomModel(Model) </listings/models.py.html#listingsmodelspy-12>`_
+-------------------------------------------------------------------------------
+
+.. code:: python
+
+       class CustomModel(Model):
+
+
+No description.
+
+
+
+
