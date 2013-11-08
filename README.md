@@ -21,3 +21,24 @@ Setup a tv series in Yonky Mode::
    
     python dosage.py --junky "Breaking Bad"
 
+Try it
+-----
+
+Before the release date (17/11/2013) you can try and test dosage, it has some bugs, doing this:
+
+Start transmission and enable the rpc client in edit/preference then go to the web tab and click en "Enable Web Client"
+
+Then you download and start the dosagedaemon
+
+    git clone git@github.com:jairot/dosage.git
+    virtualenv dosage
+    cd dosage
+    source bin/activate
+    pip install -r requirements.txt
+    cd src
+    python dosagedaemon.py Start
+
+then you can add any tv series using the commands above.
+    
+
+
