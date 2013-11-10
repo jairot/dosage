@@ -26,11 +26,15 @@ mode stops.
 import transmissionrpc
 import mattdaemon
 import sys
+import logging
 
 from time import sleep
 from models import *
 from tpb import TPB
 from tpb import ORDERS
+
+
+logging.basicConfig()
 
 
 class TorrentClient(object):
@@ -44,7 +48,7 @@ class TorrentClient(object):
         """Checks if at least one chapter is Downloading"""
         #Common torrent nomenclature replaces the space with a dot.
         name = name.replace(" ", ".")
-        altname = name.replace(".", "+" )
+        altname = name.replace(".", "+")
         for torrent in self.client.get_torrents():
             if name in torrent.name.lower() or altname in torrent.name.lower():
                 if torrent.progress != 100:

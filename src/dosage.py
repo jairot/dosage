@@ -17,6 +17,8 @@ parser.add_argument("-s,", "--season", help="Declares a season Offset",
                     type=int, default=1)
 parser.add_argument("-c,", "--chapter", help="Declares a Chapter Offset",
                     type=int, default=1)
+parser.add_argument("-l,", "--list", help="list all the seriesi in the DB",
+                   action="store_true")
 
 #name = CharField(unique = True)
 #last_season = IntegerField(default = 1, null = True)
@@ -85,6 +87,19 @@ def delete(name):
         print "%s has been removed from the DB" % name
 
 
+def lister():
+    series = Series.select()
+    for serie in series:
+        if serie.tracking:
+            print "Tracking %s in Chapter %s and season %s" % \
+                  (serie.name, str(serie.last_chapter),
+                   str(serie.last_season))
+        else:
+            print "Not Tracking %s since Chapter %s and season %s" % \
+                  (serie.name, str(serie.last_chapter),
+                   str(serie.last_season))
+
+
 if __name__ == "__main__":
     args = parser.parse_args()
     startdb()
@@ -96,5 +111,7 @@ if __name__ == "__main__":
     elif args.junky:
         junky(name=args.junky, chapter=args.chapter - 1,
               season=args.season)
+    elif args.list:
+        lister()
     elif args.delete:
         delete(name=args.delete)
