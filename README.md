@@ -43,5 +43,4 @@ then you can add any tv series using the commands above.
 Do you test this Shit?
 ----------------------
 
-.. image:: https://travis-ci.org/jairot/dosage.png?branch=master   :target: https://travis-ci.org/jairot/dosage
-
+[![Build Status](https://travis-ci.org/jairot/dosage.png?branch=master)](https://travis-ci.org/jairot/dosage)
