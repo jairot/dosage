@@ -40,5 +40,8 @@ Then you download and start the dosagedaemon
 
 then you can add any tv series using the commands above.
     
+Do you test this Shit?
+----------------------
 
+.. image:: https://travis-ci.org/jairot/dosage.png?branch=master   :target: https://travis-ci.org/jairot/dosage
 
