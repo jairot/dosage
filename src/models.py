@@ -39,4 +39,6 @@ def startdb(env='production'):
     except OperationalError:
         pass
 
+def closedb():
+	database_proxy.close()
 

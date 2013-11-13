@@ -71,8 +71,8 @@ class DosageBasicTest(unittest.TestCase):
             series = Series.get(Series.name == "mad men")
 
             self.assertTrue(series.tracking)
-            self.assertEqual(series.last_season, 2)
-            self.assertEqual(series.last_chapter, 3)
+            self.assertEqual(series.last_season, 1)
+            self.assertEqual(series.last_chapter, 0)
             self.assertTrue(series.junkie)
 
         def test_junky_new(self):
