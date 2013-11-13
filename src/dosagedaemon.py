@@ -27,7 +27,7 @@ import transmissionrpc
 import mattdaemon
 import sys
 import logging
-
+import sqlite3
 from time import sleep
 from models import *
 from tpb import TPB
@@ -144,8 +144,12 @@ class MyDaemon(mattdaemon.daemon):
         startdb()
         dosage = DosageDaemon()
         while True:
-            dosage.run()
+            try:
+                dosage.run()
+            except sqlite3.InterfaceError:
+                print "Sqlite Interface Error"
             sleep(10)
+
 
 if __name__ == "__main__":
 
