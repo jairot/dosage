@@ -22,7 +22,7 @@ parser.add_argument("-s,", "--season", help="Declares a season Offset",
 parser.add_argument("-c,", "--chapter", help="Declares a Chapter Offset",
                     type=int, default=1)
 parser.add_argument("-l,", "--list", help="list all the seriesi in the DB",
-                   action="store_true")
+                    action="store_true")
 
 #name = CharField(unique = True)
 #last_season = IntegerField(default = 1, null = True)
@@ -68,6 +68,10 @@ def junky(name, season, chapter):
     else:
         serie.tracking = True
         serie.junkie = True
+        if serie.last_season <= season:
+            serie.last_season = season
+            if serie.last_chapter < chapter:
+                serie.last_chapter = chapter
         serie.save()
     finally:
         #No more than 1 tv series in junky mode at the time
