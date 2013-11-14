@@ -139,6 +139,7 @@ class DosageDaemon(object):
     def already_downloading(self):
         pass
 
+
 class MyDaemon(mattdaemon.daemon):
 
     def run(self, *args, **kwargs):
@@ -156,17 +157,17 @@ class MyDaemon(mattdaemon.daemon):
 if __name__ == "__main__":
 
     args = {
-            "pidfile": "/tmp/dosage-daemon.pid",
-            "stdout": "/tmp/dosage-daemon.log",
-            "stderr": "/tmp/dosage-daemon.log",
-            "daemonize": True
-        }
+           "pidfile": "/tmp/dosage-daemon.pid",
+           "stdout": "/tmp/dosage-daemon.log",
+           "stderr": "/tmp/dosage-daemon.log",
+           "daemonize": True
+           }
     daem = MyDaemon(**args)
 
     for arg in sys.argv[1:]:
         arg = arg.lower()
         if arg in ("-h", "--help"):
-            print "python", sys.argv[0], "start|stop|restart|status"
+            print("python " + sys.argv[0] + " start|stop|restart|status|logs")
         elif arg in ("start", "start-no-daemon"):
             daem.start()
         elif arg in ("stop"):
@@ -175,9 +176,13 @@ if __name__ == "__main__":
             daem.restart()
         elif arg in ("status"):
             if daem.status():
-                print "dosage daemon currently running! :)"
+                printi("dosage daemon currently running! :)")
             else:
-                print "dosage daemon not running! :("
-                print "Check out the log in %s" % args["stderr"]
+                print("dosage daemon not running! :(")
+                print("Check out the log in %s" % args["stderr"])
+        elif arg in ("logs"):
+            f = open(args['stderr'])
+            log = f.readlines(size=100)
+            print(log)
         else:
             print "Unknown arg:", arg
