@@ -34,10 +34,8 @@ def startdb(env='production'):
     elif env == 'testing':
         database = SqliteDatabase(':memory:')
         database_proxy.initialize(database)
-    try:
-        Series.create_table()
-    except OperationalError:
-        pass
+    #Try to create a Table but if it exist fail silenty
+    Series.create_table(fail_silently=True)
 
 def closedb():
 	database_proxy.close()
