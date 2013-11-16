@@ -176,7 +176,7 @@ if __name__ == "__main__":
             daem.restart()
         elif arg in ("status"):
             if daem.status():
-                printi("dosage daemon currently running! :)")
+                print("dosage daemon currently running! :)")
             else:
                 print("dosage daemon not running! :(")
                 print("Check out the log in %s" % args["stderr"])
