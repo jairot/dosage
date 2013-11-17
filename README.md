@@ -24,7 +24,11 @@ Setup a tv series in Yonky Mode::
 Try it
 -----
 
-Before the release date (17/11/2013) you can try and test dosage, it has some bugs, doing this:
+Before the release date (17/11/2013) you can try and test dosage. It only works on GNU/Linux environmet with the transmission torrent Client
+
+first install the python environment tools:
+
+    sudo apt-get install python-dev python-virtualenv python-pip
 
 Start transmission and enable the rpc client in edit/preference then go to the web tab and click en "Enable Web Client"
 
