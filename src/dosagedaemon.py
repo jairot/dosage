@@ -30,6 +30,8 @@ import logging
 import sqlite3
 import timeout_decorator
 
+from urllib2 import URLError
+from subprocess import Popen
 from time import sleep
 from models import *
 from tpb import TPB
@@ -42,8 +44,8 @@ logging.basicConfig()
 class TorrentClient(object):
 
     def __init__(self):
-        #Let's assume that Trasmission is On and fix It later
-        #TODO: What happens when transsmission is not on?
+        Popen(["transmission-gtk"])
+        sleep(10)
         self.client = transmissionrpc.Client()
 
     def already_downloading(self, name):
@@ -81,6 +83,9 @@ class TorrentProvider(object):
         try:
             torrent = next(search.items())
         except StopIteration:
+            return None
+        except URLError:
+            print("Can't connect to the torrent provider")
             return None
         else:
             return torrent.magnet_link
