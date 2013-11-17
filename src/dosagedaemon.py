@@ -28,6 +28,7 @@ import mattdaemon
 import sys
 import logging
 import sqlite3
+import timeout_decorator
 
 from time import sleep
 from models import *
@@ -60,16 +61,21 @@ class TorrentClient(object):
         try:
             self.client.add_torrent(magnet)
         except transmissionrpc.error.TransmissionError:
-            print "Already downloaded that torrent"
+            print("Already downloaded that torrent")
 
 
 class TorrentProvider(object):
 
     def __init__(self):
         self.provider = TPB('https://thepiratebay.sx')
+        self.MINIMUM_SEEDS = 5
 
     def find(self, seriename):
-        print "Searching for %s" % seriename
+        return self._find(seriename)
+
+    @timeout_decorator.timeout(10)
+    def _find(self, seriename):
+        print("Searching for %s" % seriename)
         search = self.provider.search(seriename)
         search.order(ORDERS.SEEDERS.ASC).multipage()
         try:
@@ -79,23 +85,30 @@ class TorrentProvider(object):
         else:
             return torrent.magnet_link
 
-
 class DosageDaemon(object):
 
     def __init__(self, client=TorrentClient, provider=TorrentProvider):
         self.client = client()
         self.provider = provider()
-        self.MINIMUM_SEEDS = 5
 
     def download(self, serie):
         #TODO: Crapy logic, make it better
         seriename, chapter, season = self.stringmaker(serie)
-        torrent = self.provider.find(seriename)
+
+        try:
+            torrent = self.provider.find(seriename)
+        except timeout_decorator.TimeoutError:
+            print("Timeout in the query to the provider")
+            return
 
         #Lookup if a new season is available
         if not torrent:
             seriename, chapter, season = self.stringmaker(serie, newseason=1)
-            torrent = self.provider.find(seriename)
+            try:
+                torrent = self.provider.find(seriename)
+            except timeout_decorator.TimeoutError:
+                print("Timeout in the query to the provider")
+                return
 
         if torrent:
             self.client.download(torrent)
@@ -149,19 +162,18 @@ class MyDaemon(mattdaemon.daemon):
             try:
                 dosage.run()
             except sqlite3.InterfaceError:
-                print "Sqlite Interface Error"
+                print("Sqlite Interface Error")
             closedb()
-            sleep(10)
+            sleep(60)
 
 
 if __name__ == "__main__":
 
-    args = {
-           "pidfile": "/tmp/dosage-daemon.pid",
-           "stdout": "/tmp/dosage-daemon.log",
-           "stderr": "/tmp/dosage-daemon.log",
-           "daemonize": True
-           }
+    args = {"pidfile": "/tmp/dosage-daemon.pid",
+            "stdout": "/tmp/dosage-daemon.log",
+            "stderr": "/tmp/dosage-daemon.log",
+            "daemonize": True
+            }
     daem = MyDaemon(**args)
 
     for arg in sys.argv[1:]:
@@ -182,7 +194,10 @@ if __name__ == "__main__":
                 print("Check out the log in %s" % args["stderr"])
         elif arg in ("logs"):
             f = open(args['stderr'])
-            log = f.readlines(size=100)
+            log = f.read()
             print(log)
+        elif arg in ("debug"):
+            while True:
+                daem.run()
         else:
-            print "Unknown arg:", arg
+            print("Unknown arg: %s" % arg)
