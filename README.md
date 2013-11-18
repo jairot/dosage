@@ -24,7 +24,7 @@ Setup a tv series in Yonky Mode::
 Try it
 -----
 
-Before the release date (17/11/2013) you can try and test dosage. It only works on GNU/Linux environmet with the transmission torrent Client
+Before the release date (24/11/2013) you can try and test dosage. It only works on GNU/Linux environmet with the transmission torrent Client
 
 first install the python environment tools:
 
