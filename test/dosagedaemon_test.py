@@ -33,3 +33,15 @@ class DosageDaemonTest(unittest.TestCase):
                         assert_called_once_with("mad men")
             self.daemon.provider.find.assert_called_once_with("mad men S01E01")
             self.daemon.client.downdloadassert_called_once_with("MadMenMagnet")
+        
+	def test_already_downloading(self):
+            track("Mad Men", 2, 1)
+
+            self.daemon.client.already_downloading.return_value = True
+            self.daemon.provider.find.return_value = "MadMenMagnet"
+
+            self.daemon.run()
+
+            self.daemon.client.already_downloading.\
+                        assert_called_once_with("mad men")
+            self.assertFalse(self.daemon.provider.find.called)
