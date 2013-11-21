@@ -2,9 +2,6 @@ ThePirateBay==1.1.3
 argparse==1.2.1
 beautifulsoup4==4.3.2
 dateutils==0.6.6
-distribute==0.6.24
-ipdb==0.8
-ipython==1.1.0
 lxml==3.2.3
 mattdaemon==1.1.1
 mccabe==0.2.1
