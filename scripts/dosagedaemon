@@ -1,4 +1,4 @@
-#!/urs/bin/env python
+#!/usr/bin/env python
 #-*- coding: utf-8 -*-
 """ This daemon downloads and schedules the Series that dosage is tracking
 because Bandwith is allways scarce there are some policies implemented in
@@ -33,7 +33,7 @@ import timeout_decorator
 from urllib2 import URLError
 from subprocess import Popen
 from time import sleep
-from models import *
+from src.models import *
 from tpb import TPB
 from tpb import ORDERS
 

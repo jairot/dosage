@@ -11,6 +11,7 @@ setup(
         author_email='jtrad@insus.com.ar',
         packages = find_packages(exclude=['*_test.py']),
         py_modules = ['tvdosage'],
+    scripts=['scripts/tvdosage', 'scripts/dosagedaemon'],
         install_requires=['ThePirateBay', 'argparse', 'beautifulsoup4', 'dateutils', 'lxml',
                           'mattdaemon','mccabe', 'mock', 'peewee', 'purl', 'python-dateutil',
                           'pytz', 'six', 'timeout-decorator','transmissionrpc','wsgiref'],

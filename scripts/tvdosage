@@ -1,11 +1,11 @@
-#!/urs/bin/env python
+#!/usr/bin/env python
 #-*- coding: utf-8 -*-
 """This Module works as a Dosage Runner"""
 
 import argparse
 import logging
 
-from models import *
+from src.models import *
 
 
 logging.basicConfig()
