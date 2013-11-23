@@ -1,7 +1,6 @@
 import unittest
 
-from models import Series, startdb
-from tvdosage import track, untrack, junky, delete
+from tvdosage import track, untrack, junky, delete, Series, startdb
 
 
 class DosageBasicTest(unittest.TestCase):

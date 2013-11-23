@@ -1,10 +1,9 @@
 import unittest
 
 from mock import Mock, call
-from models import Series, startdb
 from dosagedaemon import DosageDaemon, TorrentClient, TorrentProvider
-from tvdosage import track, untrack, junky
-
+from tvdosage import track, junky, startdb, Series
+from dosagedaemon import startdb as ddstartdb
 
 class DosageDaemonTest(unittest.TestCase):
 
@@ -14,6 +13,7 @@ class DosageDaemonTest(unittest.TestCase):
 
         def setUp(self):
             startdb(env='testing')
+            ddstartdb(env='testing')
             self.tpmock = Mock(spec=TorrentProvider)
             self.tcmock = Mock(spec=TorrentClient)
             self.daemon = DosageDaemon(self.tcmock, self.tpmock)
