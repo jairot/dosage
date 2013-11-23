@@ -5,7 +5,7 @@
 import argparse
 import logging
 
-from tvdosage.models import *
+from dosagedb.models import *
 
 
 logging.basicConfig()

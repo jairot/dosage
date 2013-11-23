@@ -3,7 +3,7 @@ import unittest
 from mock import Mock, call
 from models import Series, startdb
 from dosagedaemon import DosageDaemon, TorrentClient, TorrentProvider
-from dosage import track, untrack, junky
+from tvdosage import track, untrack, junky
 
 
 class DosageDaemonTest(unittest.TestCase):

@@ -13,7 +13,7 @@ setup(
         py_modules = ['tvdosage'],
     scripts=['scripts/tvdosage', 'scripts/dosagedaemon'],
         install_requires=['ThePirateBay', 'argparse', 'beautifulsoup4', 'dateutils', 'lxml',
-                          'mattdaemon','mccabe', 'mock', 'peewee', 'purl', 'python-dateutil',
+                          'mattdaemon','mccabe', 'peewee', 'purl', 'python-dateutil',
                           'pytz', 'six', 'timeout-decorator','transmissionrpc','wsgiref'],
         include_package_data=True,
         classifiers=[

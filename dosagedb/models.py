@@ -30,10 +30,9 @@ def startdb(env='production'):
         path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                             'database.db')
         database = SqliteDatabase(path)
-        database_proxy.initialize(database)
     elif env == 'testing':
         database = SqliteDatabase(':memory:')
-        database_proxy.initialize(database)
+    database_proxy.initialize(database)
     #Try to create a Table but if it exist fail silenty
     Series.create_table(fail_silently=True)
 
