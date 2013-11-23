@@ -33,7 +33,7 @@ import timeout_decorator
 from urllib2 import URLError
 from subprocess import Popen
 from time import sleep
-from src.models import *
+from tvdosage.models import *
 from tpb import TPB
 from tpb import ORDERS
 
