@@ -1,4 +1,4 @@
-Dosage
+TvDosage
 ======
 
 "Keep your Tv Series dose going"
@@ -9,38 +9,36 @@ Also providing a Junky mode in wich the program tries to download the series cha
 Usage
 ------
 
-Start tracking a tv series::
+Start tracking a tv series:
 
-    python dosage.py --track "Mad Men"
+    tvdosage --track "Mad Men"
 
-stop tracking a tv series::
+stop tracking a tv series:
 
-    python dosage.py --untrack "Mad Men" 
+    tvdosage --untrack "Mad Men" 
 
-Setup a tv series in Yonky Mode::
+Setup a tv series in Junky Mode:
    
-    python dosage.py --junky "Breaking Bad"
+    tvdosage --junky "Breaking Bad"
+
+Check all the available commands:
+    tvdosage --help
 
 Try it
 -----
 
-Before the release date (24/11/2013) you can try and test dosage. It only works on GNU/Linux environmet with the transmission torrent Client
+Try TvDosage!!. It only works on GNU/Linux environmet with the transmission torrent Client
 
 first install the python environment tools:
 
-    sudo apt-get install python-dev python-virtualenv python-pip
+    sudo apt-get install python-dev python-pip
 
 Start transmission and enable the rpc client in edit/preference then go to the web tab and click en "Enable Web Client"
 
 Then you download and start the dosagedaemon
 
-    git clone git@github.com:jairot/dosage.git
-    virtualenv dosage
-    cd dosage
-    source bin/activate
-    pip install -r requirements.txt
-    cd src
-    python dosagedaemon.py start
+    sudo pip install tvdosage
+    dosagedaemon start
 
 then you can add any tv series using the commands above.
     
