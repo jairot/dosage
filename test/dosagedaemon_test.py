@@ -2,8 +2,46 @@ import unittest
 
 from mock import Mock, call
 from dosagedaemon import DosageDaemon, TorrentClient, TorrentProvider
-from tvdosage import track, junky, startdb, Series
-from dosagedaemon import startdb as ddstartdb
+from dosagedaemon import Series, startdb
+
+
+def faketrack(name, season, chapter):
+    name = name.lower()
+    try:
+        serie = Series.get(Series.name == name)
+    except Series.DoesNotExist:
+        serie = Series.create(name=name, last_season=season,
+                              last_chapter=chapter, tracking=True)
+    else:
+        serie.tracking = True
+        serie.save()
+    print "Tracking %s" % name
+
+def fakejunky(name, season, chapter):
+    name = name.lower()
+    try:
+        serie = Series.get(Series.name == name)
+    except Series.DoesNotExist:
+        serie = Series.create(name=name, last_season=season,
+                              last_chapter=chapter, tracking=True, junkie=True)
+    else:
+        serie.tracking = True
+        serie.junkie = True
+        if serie.last_season <= season:
+            serie.last_season = season
+            if serie.last_chapter < chapter:
+                serie.last_chapter = chapter
+        serie.save()
+    finally:
+        #No more than 1 tv series in junky mode at the time
+        series = Series.select().where(Series.name != name,
+                                       Series.junkie == True)
+        for serie in series:
+            serie.junkie = False
+            serie.save()
+            print "%s is not more in Junky Mode" % serie.name
+    print "%s is on Junky Mode" % name
+
 
 class DosageDaemonTest(unittest.TestCase):
 
@@ -13,7 +51,6 @@ class DosageDaemonTest(unittest.TestCase):
 
         def setUp(self):
             startdb(env='testing')
-            ddstartdb(env='testing')
             self.tpmock = Mock(spec=TorrentProvider)
             self.tcmock = Mock(spec=TorrentClient)
             self.daemon = DosageDaemon(self.tcmock, self.tpmock)
@@ -22,7 +59,7 @@ class DosageDaemonTest(unittest.TestCase):
             self.daemon.run()
 
         def test_new_serie(self):
-            track("Mad Men", 1, 0)
+            faketrack("Mad Men", 1, 0)
 
             self.daemon.client.already_downloading.return_value = False
             self.daemon.provider.find.return_value = "MadMenMagnet"
@@ -35,7 +72,7 @@ class DosageDaemonTest(unittest.TestCase):
             self.daemon.client.downdloadassert_called_once_with("MadMenMagnet")
 
         def test_already_downloading(self):
-            track("Mad Men", 2, 1)
+            faketrack("Mad Men", 2, 1)
 
             self.daemon.client.already_downloading.return_value = True
             self.daemon.provider.find.return_value = "MadMenMagnet"
@@ -47,7 +84,7 @@ class DosageDaemonTest(unittest.TestCase):
             self.assertFalse(self.daemon.provider.find.called)
 
         def test_junky(self):
-            junky("Mad Men", 2, 1)
+            fakejunky("Mad Men", 2, 1)
 
             self.daemon.client.already_downloading.return_value = False
             self.daemon.provider.find.return_value = "MadMenMagnet"
@@ -60,8 +97,8 @@ class DosageDaemonTest(unittest.TestCase):
             self.daemon.client.download.assert_called_once_with("MadMenMagnet")
 
         def test_junky_vs_track(self):
-            track("The Wire", 1, 0)
-            junky("Mad Men", 2, 1)
+            faketrack("The Wire", 1, 0)
+            fakejunky("Mad Men", 2, 1)
 
             self.daemon.client.already_downloading.return_value = False
             self.daemon.provider.find.return_value = "MadMenMagnet"
@@ -74,7 +111,7 @@ class DosageDaemonTest(unittest.TestCase):
             self.daemon.client.download.assert_called_once_with("MadMenMagnet")
 
         def test_stringmaker(self):
-            track("The Wire", 1, 0)
+            faketrack("The Wire", 1, 0)
 
             serie = Series.get(Series.name=="the wire")
 
@@ -85,7 +122,7 @@ class DosageDaemonTest(unittest.TestCase):
             self.assertEqual(seriestring, (u'the wire S02E01', '01', '02'))
 
         def test_cant_find_magnet(self):
-            track("Mad Men", 1, 0)
+            faketrack("Mad Men", 1, 0)
 
             self.daemon.client.already_downloading.return_value = False
             self.daemon.provider.find.return_value = None
