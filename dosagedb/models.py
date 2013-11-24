@@ -27,7 +27,11 @@ class Series(CustomModel):
 
 def startdb(env='production'):
     if env == 'production':
-        path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+        home = os.path.expanduser("~")
+        dosagepath = os.path.join(home, ".tvdosage/")
+        if not os.path.exists(dosagepath):
+            os.makedirs(dosagepath)
+        path = os.path.join(dosagepath,
                             'database.db')
         database = SqliteDatabase(path)
     elif env == 'testing':
