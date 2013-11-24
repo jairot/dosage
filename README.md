@@ -9,6 +9,10 @@ Also providing a Junky mode in wich the program tries to download the series cha
 Usage
 ------
 
+Start the DosageDaemon:
+
+    dosagedaemon start
+
 Start tracking a tv series:
 
     tvdosage --track "Mad Men"
@@ -18,10 +22,11 @@ stop tracking a tv series:
     tvdosage --untrack "Mad Men" 
 
 Setup a tv series in Junky Mode:
-   
+
     tvdosage --junky "Breaking Bad"
 
 Check all the available commands:
+
     tvdosage --help
 
 Try it
@@ -35,9 +40,12 @@ first install the python environment tools:
 
 Start transmission and enable the rpc client in edit/preference then go to the web tab and click en "Enable Web Client"
 
-Then you download and start the dosagedaemon
+Then you download and start the dosagedaemon:
 
     sudo pip install tvdosage
+
+then start the DosageDaemon:
+
     dosagedaemon start
 
 then you can add any tv series using the commands above.
