@@ -107,8 +107,7 @@ def lister():
                   (serie.name, str(serie.last_chapter),
                    str(serie.last_season))
 
-
-if __name__ == "__main__":
+def main():
     args = parser.parse_args()
     startdb()
     if args.track:
@@ -123,3 +122,6 @@ if __name__ == "__main__":
         lister()
     elif args.delete:
         delete(name=args.delete)
+
+if __name__ == "__main__":
+    main()

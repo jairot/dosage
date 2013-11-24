@@ -171,9 +171,7 @@ class MyDaemon(mattdaemon.daemon):
             closedb()
             sleep(60)
 
-
-if __name__ == "__main__":
-
+def main():
     args = {"pidfile": "/tmp/dosage-daemon.pid",
             "stdout": "/tmp/dosage-daemon.log",
             "stderr": "/tmp/dosage-daemon.log",
@@ -206,3 +204,8 @@ if __name__ == "__main__":
                 daem.run()
         else:
             print("Unknown arg: %s" % arg)
+
+
+if __name__ == "__main__":
+    main()
+
