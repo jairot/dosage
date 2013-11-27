@@ -9,6 +9,15 @@ Also providing a Junky mode in wich the program tries to download the series cha
 Usage
 ------
 
+
+You need to Enable the Transmission RPC Service. 
+
+For that you need to Start transmission, click in edit/preference, then click in the web tab and select "Enable Web Client"
+
+![transmission](https://raw.github.com/jairot/dosage/master/transmision.png)
+
+
+
 Start the DosageDaemon:
 
     dosagedaemon start
@@ -38,7 +47,6 @@ first install the python environment tools:
 
     sudo apt-get install python-dev python-pip
 
-Start transmission and enable the rpc client in edit/preference then go to the web tab and click en "Enable Web Client"
 
 Then you download and start the dosagedaemon:
 
