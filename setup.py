@@ -13,8 +13,8 @@ setup(
         py_modules = ['tvdosage'],
           entry_points={
                     'console_scripts':
-                        ['dosagedaemon = scripts.dosagedaemon:main',
-                         'tvdosage = scripts.tvdosage:main'
+                        ['dosagedaemon = tvdosage.dosagedaemon:main',
+                         'tvdosage = tvdosage.tvdosage:main'
                          ]},
         install_requires=['ThePirateBay', 'argparse', 'beautifulsoup4', 'dateutils', 'lxml',
                           'mattdaemon','mccabe', 'peewee', 'purl', 'python-dateutil',

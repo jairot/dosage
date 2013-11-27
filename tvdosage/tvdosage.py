@@ -5,7 +5,7 @@
 import argparse
 import logging
 
-from dosagedb.models import *
+from models import *
 
 
 logging.basicConfig()
