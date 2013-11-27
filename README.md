@@ -38,7 +38,7 @@ Check all the available commands:
 
     tvdosage --help
 
-Try it
+Instalation
 -----
 
 Try TvDosage!!. It only works on GNU/Linux environmet with the transmission torrent Client
@@ -47,12 +47,13 @@ first install the python environment tools:
 
     sudo apt-get install python-dev python-pip
 
-
 Then you download and start the dosagedaemon:
 
     sudo pip install tvdosage
 
-then start the DosageDaemon:
+Enable the Transmission RPC Service. For that you need to Start transmission, click in edit/preference, then click in the web tab and select "Enable Web Client"
+
+Start the DosageDaemon:
 
     dosagedaemon start
 
