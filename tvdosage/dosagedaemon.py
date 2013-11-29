@@ -75,20 +75,26 @@ class TorrentProvider(object):
     def find(self, seriename):
         return self._find(seriename)
 
-    @timeout_decorator.timeout(10)
+    @timeout_decorator.timeout(15)
     def _find(self, seriename):
         print("Searching for %s" % seriename)
         search = self.provider.search(seriename)
         search.order(ORDERS.SEEDERS.ASC).multipage()
-        try:
-            torrent = next(search.items())
-        except StopIteration:
-            return None
-        except URLError:
-            print("Can't connect to the torrent provider")
-            return None
-        else:
-            return torrent.magnet_link
+        torrent = True
+        while torrent:
+            try:
+                torrent = next(search.items())
+            except StopIteration:
+                return None
+            except URLError:
+                print("Can't connect to the torrent provider")
+                return None
+            else:
+                if torrent.seeders > self.MINIMUM_SEEDS:
+                    return torrent.magnet_link
+                else:
+                    print("Can't find torrent with the minimun required seeds")
+                    torrent = False
 
 class DosageDaemon(object):
 
@@ -153,9 +159,6 @@ class DosageDaemon(object):
     def get_tracking(self):
         series = Series.select().where(Series.tracking == True)
         return series
-
-    def already_downloading(self):
-        pass
 
 
 class MyDaemon(mattdaemon.daemon):
