@@ -65,6 +65,9 @@ class TorrentClient(object):
         except transmissionrpc.error.TransmissionError:
             print("Already downloaded that torrent")
 
+    def check(self):
+        import ipdb; ipdb.set_trace()
+        print "lalala"
 
 class TorrentProvider(object):
 
@@ -95,6 +98,10 @@ class TorrentProvider(object):
                 else:
                     print("Can't find torrent with the minimun required seeds")
                     torrent = False
+
+    def check(self):
+        pass
+
 
 class DosageDaemon(object):
 
@@ -160,6 +167,9 @@ class DosageDaemon(object):
         series = Series.select().where(Series.tracking == True)
         return series
 
+    def check(self):
+        self.client.check()
+        self.provider.check()
 
 class MyDaemon(mattdaemon.daemon):
 
@@ -174,6 +184,16 @@ class MyDaemon(mattdaemon.daemon):
             closedb()
             sleep(60)
 
+    def check(self):
+        try:
+            DosageDaemon()
+        except transmissionrpc.TransmissionError:
+            print("You need to enable the Transmission RPC Server" +
+                  " go to transmission, click in preference, click in the" +
+                  " web tab and then check the 'enable web client' option.\n" +
+                  "Then try to start the daemon again")
+
+
 def main():
     args = {"pidfile": "/tmp/dosage-daemon.pid",
             "stdout": "/tmp/dosage-daemon.log",
@@ -186,7 +206,8 @@ def main():
         arg = arg.lower()
         if arg in ("-h", "--help"):
             print("python " + sys.argv[0] + " start|stop|restart|status|logs")
-        elif arg in ("start", "start-no-daemon"):
+        elif arg in ("start"):
+            daem.check()
             daem.start()
         elif arg in ("stop"):
             daem.stop()
