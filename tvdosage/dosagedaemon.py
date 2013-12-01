@@ -65,9 +65,6 @@ class TorrentClient(object):
         except transmissionrpc.error.TransmissionError:
             print("Already downloaded that torrent")
 
-    def check(self):
-        import ipdb; ipdb.set_trace()
-        print "lalala"
 
 class TorrentProvider(object):
 
@@ -98,9 +95,6 @@ class TorrentProvider(object):
                 else:
                     print("Can't find torrent with the minimun required seeds")
                     torrent = False
-
-    def check(self):
-        pass
 
 
 class DosageDaemon(object):
@@ -167,9 +161,6 @@ class DosageDaemon(object):
         series = Series.select().where(Series.tracking == True)
         return series
 
-    def check(self):
-        self.client.check()
-        self.provider.check()
 
 class MyDaemon(mattdaemon.daemon):
 
@@ -232,4 +223,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
