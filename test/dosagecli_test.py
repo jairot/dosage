@@ -1,7 +1,7 @@
 import unittest
 
 from tvdosage.tvdosage import track, untrack, junky, delete, Series, startdb
-
+from tvdosage.tvdosage import lister
 
 class DosageBasicTest(unittest.TestCase):
 
@@ -110,6 +110,11 @@ class DosageBasicTest(unittest.TestCase):
             series = Series.select().where(Series.name == "mad men")
 
             self.assertRaises(IndexError, series.__getitem__, 0)
+
+        def test_lists(self):
+            lister()
+
+
 
 if __name__ == '__main__':
     unittest.main()
