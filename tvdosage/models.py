@@ -21,7 +21,7 @@ class Series(CustomModel):
     last_season = IntegerField(default=1, null=True)
     last_chapter = IntegerField(defautl=1, null=True)
     tracking = BooleanField(default=False)
-    junkie = BooleanField(default=False)
+    junky = BooleanField(default=False)
     quality = CharField(default="HDTV")
 
 

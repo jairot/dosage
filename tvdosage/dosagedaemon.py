@@ -150,7 +150,7 @@ class DosageDaemon(object):
                     self.download(serie)
 
     def get_junky(self):
-        series = Series.select().where(Series.junkie == True)
+        series = Series.select().where(Series.junky == True)
         try:
             series[0]
         except IndexError:
@@ -219,7 +219,7 @@ def main():
                 daem.run()
         else:
             print("Unknown arg: %s" % arg)
-
+            print("python " + sys.argv[0] + " start|stop|restart|status|logs")
 
 if __name__ == "__main__":
     main()

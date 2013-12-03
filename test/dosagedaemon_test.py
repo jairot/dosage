@@ -23,10 +23,10 @@ def fakejunky(name, season, chapter):
         serie = Series.get(Series.name == name)
     except Series.DoesNotExist:
         serie = Series.create(name=name, last_season=season,
-                              last_chapter=chapter, tracking=True, junkie=True)
+                              last_chapter=chapter, tracking=True, junky=True)
     else:
         serie.tracking = True
-        serie.junkie = True
+        serie.junky = True
         if serie.last_season <= season:
             serie.last_season = season
             if serie.last_chapter < chapter:
@@ -35,9 +35,9 @@ def fakejunky(name, season, chapter):
     finally:
         #No more than 1 tv series in junky mode at the time
         series = Series.select().where(Series.name != name,
-                                       Series.junkie == True)
+                                       Series.junky == True)
         for serie in series:
-            serie.junkie = False
+            serie.junky = False
             serie.save()
             print "%s is not more in Junky Mode" % serie.name
     print "%s is on Junky Mode" % name

@@ -63,7 +63,7 @@ class DosageBasicTest(unittest.TestCase):
             self.assertEqual(series.last_season, 1)
             self.assertEqual(series.last_chapter, 0)
             self.assertTrue(series.tracking)
-            self.assertFalse(series.junkie)
+            self.assertFalse(series.junky)
 
             #Put that serie in Junky mode
             junky("Mad Men", 2, 3)
@@ -72,7 +72,7 @@ class DosageBasicTest(unittest.TestCase):
             self.assertTrue(series.tracking)
             self.assertEqual(series.last_season, 2)
             self.assertEqual(series.last_chapter, 3)
-            self.assertTrue(series.junkie)
+            self.assertTrue(series.junky)
 
         def test_junky_new(self):
             #Check if mad men is not in Series
@@ -88,7 +88,7 @@ class DosageBasicTest(unittest.TestCase):
             self.assertTrue(series.tracking)
             self.assertEqual(series.last_season, 2)
             self.assertEqual(series.last_chapter, 3)
-            self.assertTrue(series.junkie)
+            self.assertTrue(series.junky)
 
         def test_delete(self):
             #Check if mad men is not in Series

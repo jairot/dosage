@@ -24,13 +24,6 @@ parser.add_argument("-c,", "--chapter", help="Declares a Chapter Offset",
 parser.add_argument("-l,", "--list", help="list all the seriesi in the DB",
                     action="store_true")
 
-#name = CharField(unique = True)
-#last_season = IntegerField(default = 1, null = True)
-#last_chapter = IntegerField(defautl = 1, null = True)
-#tracking = BooleanField(default = False)
-#junkie = BooleanField(default = False)
-#quality =  CharField(default = "HDTV")
-
 
 def track(name, season, chapter):
     name = name.lower()
@@ -53,7 +46,7 @@ def untrack(name):
         print "You are not Tracking that Tv Series"
     else:
         serie.tracking = False
-        serie.junkie = False
+        serie.junky = False
         serie.save()
         print "Untracking %s" % name
 
@@ -64,10 +57,10 @@ def junky(name, season, chapter):
         serie = Series.get(Series.name == name)
     except Series.DoesNotExist:
         serie = Series.create(name=name, last_season=season,
-                              last_chapter=chapter, tracking=True, junkie=True)
+                              last_chapter=chapter, tracking=True, junky=True)
     else:
         serie.tracking = True
-        serie.junkie = True
+        serie.junky = True
         if serie.last_season <= season:
             serie.last_season = season
             if serie.last_chapter < chapter:
@@ -76,9 +69,9 @@ def junky(name, season, chapter):
     finally:
         #No more than 1 tv series in junky mode at the time
         series = Series.select().where(Series.name != name,
-                                       Series.junkie == True)
+                                       Series.junky == True)
         for serie in series:
-            serie.junkie = False
+            serie.junky = False
             serie.save()
             print "%s is not more in Junky Mode" % serie.name
     print "%s is on Junky Mode" % name
