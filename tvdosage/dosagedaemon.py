@@ -26,9 +26,10 @@ mode stops.
 import transmissionrpc
 import mattdaemon
 import sys
-import logging
 import sqlite3
 import timeout_decorator
+
+import logmanager as log
 
 from urllib2 import URLError
 from subprocess import Popen
@@ -37,8 +38,6 @@ from models import *
 from tpb import TPB
 from tpb import ORDERS
 
-
-logging.basicConfig()
 
 
 class TorrentClient(object):

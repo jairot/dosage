@@ -3,12 +3,10 @@
 """This Module works as a Dosage Runner"""
 
 import argparse
-import logging
+import logmanager as log
 
 from models import *
 
-
-logging.basicConfig()
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-t", "--track", help="Start tracking the given tv series")

@@ -6,7 +6,7 @@ import os
 from peewee import Model, SqliteDatabase
 from peewee import CharField, IntegerField, BooleanField
 from playhouse.proxy import Proxy
-from sqlite3 import OperationalError
+
 
 database_proxy = Proxy()
 
@@ -40,6 +40,6 @@ def startdb(env='production'):
     #Try to create a Table but if it exist fail silenty
     Series.create_table(fail_silently=True)
 
-def closedb():
-	database_proxy.close()
 
+def closedb():
+    database_proxy.close()
