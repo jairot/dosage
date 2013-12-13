@@ -68,7 +68,7 @@ class TorrentClient(object):
 class TorrentProvider(object):
 
     def __init__(self):
-        self.provider = TPB('https://thepiratebay.sx')
+        self.provider = TPB('https://thepiratebay.pe')
         self.MINIMUM_SEEDS = 5
 
     def find(self, seriename):
