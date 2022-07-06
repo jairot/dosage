@@ -2,7 +2,7 @@ ThePirateBay==1.1.3
 argparse==1.2.1
 beautifulsoup4==4.3.2
 dateutils==0.6.6
-lxml==3.2.3
+lxml==4.9.1
 mattdaemon==1.1.1
 mccabe==0.2.1
 mock==1.0.1
